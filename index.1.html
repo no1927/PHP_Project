@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="css/jquery-ui.css" rel="stylesheet">-->
+
+    <script src="js/jquery.js"></script>
+    <!--<script src="js/jquery-ui.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+ 
+</head>
+<body>
+
+<div class="container ">
+    <div class="panel panel-head col-sm-6 col-md-12" style="background-color: Tomato">
+	<!--<h1>打皂新世界</h1>-->
+	<br>
+        <div class="divHead col-sm-6 col-md-3"  style="background-color: Tomato">
+              <h1>打皂新世界</h1>
+        </div>
+        <div class="divHead col-sm-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="image\image2.jpg"  class="img-circle"
+                     alt="通用的占位符缩略图">
+            </a>
+        </div>
+        <div class="divHead col-sm-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="image\image3.jpg" class="img-circle"
+                     alt="通用的占位符缩略图">
+            </a>
+        </div>
+        <div class="divHead col-sm-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="image\image4.jpg" class="img-circle"
+                     alt="通用的占位符缩略图">
+            </a>
+        </div>
+        <!--<div class="col-sm-6 col-md-3">-->
+        <!--    <a href="#" class="thumbnail">-->
+        <!--        <img src="image\image7.jpg" class="img-circle" -->
+        <!--             alt="通用的占位符缩略图">-->
+        <!--    </a>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<div class="panel-group container " id="accordion"> 
+    <!--Bootstrap 折叠（Collapse）插件-->
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse1">
+					配方設定
+				</a>
+			</h4>
+		</div>
+		<div id="collapse1" class="panel-collapse collapse">
+			<div class="panel-body">
+                <!--<form  class=" form-horizontal"  method="post" action="echo.php">-->
+                <form  class=" form-horizontal">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="panel panel-success">
+                                    <p></p>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="txtName">配方皂名稱</label>  
+                            <div class="col-md-4">
+                                <input id="txtName" name="txtName" type="text"  class="form-control input-md" required="">
+                        
+                            </div>
+                            <label class="col-md-2 control-label" for="txtWeight">總油重(g)</label>  
+                            <div class="col-md-2">
+                            <input id="txtWeight" name="txtWeight" type="text" class="form-control input-md" required="">
+                            </div>
+                       </div>
+                       <div class="form-group">
+                            <label class="col-md-2 control-label" for="selOil">油脂選擇</label>
+                            <div class="col-md-4">
+                            <select id="selOil" name="selOil" class="form-control" onChange="selOilChange(this.options[this.options.selectedIndex].value)">
+                                <option value="1">椰子油</option>
+                                <option value="2">棕梠油</option>
+                                <option value="3">橄欖油</option>
+                            </select>
+                            </div>
+                            <label class="col-md-2 control-label" for="txtEmail">油佔比%</label>  
+                            <div class="col-md-2">
+                            <input id="txtRate" name="txtRate" type="text" 
+                            class="form-control input-md"
+                            pattern="\d{2}" //pattern 格式驗證
+                            required="">
+                            </div>
+                            <label id="labOil" class="col-md-1 control-label"></label>  
+                            <label id="labInsValue" class="col-md-1 control-label"></label>  
+                            <label id="labSoapValue" class="col-md-1 control-label"></label>  
+
+                       </div>     
+                    <div class="panel-heading">
+                       
+                        <button type="submit" name="loginOrCancel" value="addMember"
+                          id="loginButton"
+                          class="btn btn-success" onclick="OilAdd()">
+                         <span class="glyphicon glyphicon-send"></span> 送出
+                        </button>
+ 
+                        <button type="submit" name="loginOrCancel" value="cancel"
+                           id="cancelButton"
+                           class="btn btn-success">
+                           <span class="glyphicon glyphicon-remove"></span> 取消
+                        </button>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+  </form>
+
+
+			</div>
+		</div>
+	</div>	
+	
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse2">
+					動手做
+				</a>
+			</h4>
+		</div>
+		<div id="collapse2" class="panel-collapse collapse">
+			<div class="panel-body">
+				請跟著步驟一步一步完成 
+				<div id="divStepByStep">
+				    
+				    
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse3">
+					下載配方表
+				</a>
+			</h4>
+		</div>
+		<div id="collapse3" class="panel-collapse collapse">
+			<div class="panel-body">
+				請跟著步驟一步一步完成 
+			</div>
+		</div>
+
+        <div id="myAlert" class="alert alert-warning">
+        	<a href="#" class="close" data-dismiss="alert" >&times;</a>
+        	<strong>警告！</strong>您的网络连接有问题。
+        </div>
+
+	</div>	
+</div>
+<div id="debug">
+    
+</div>
+<script>
+  // $("#accordion").accordion();
+  // $("#accordion").accordion({ active: 2 });
+  // $("#accordion").accordion({ collapsible: true });  //多頁籤選單可全部收合
+  // $("#accordion").accordion({ event: "mouseover" });
+
+
+$(document).ready(function() {
+  //表單載入時執行
+  $('#myAlert').hide();    //顯示.show();
+  $(".divHead").hide();    //隱藏 class='divHead' 所有物件
+  var obj = $('.divHead'); 
+  for(i=0;i<=obj.length;i++)
+  {
+      $(obj[i]).fadeIn(i*1500); //讓隱藏的物件依序顯示 , 設定淡出時間
+  }
+  //  $('.divHead').fadeIn('slow'); //淡出 class='divHead' 所有物件
+  
+      $("#selOil").empty();
+
+    var oilList =
+        [
+            { name: "椰子油" ,insValue: 258, soapValue: 0.19 , softOil: false  ,descript:"富含飽和脂肪酸，可做出洗淨力強、質地硬、顏色雪白且泡沫多的香皂。但洗淨力很強的皂難免會讓皮膚感覺乾澀，所以使用份量不宜過高，建議不要超過全油脂的20%～30%左右。" },
+            { name: "可可脂" , insValue: 157, soapValue: 0.137 , softOil: false ,descript:"" },
+            { name: "乳油木果脂" , insValue: 116, soapValue: 0.128 , softOil: false ,descript:"" },
+            { name: "棕櫚油" , insValue: 145, soapValue: 0.141 , softOil: false ,descript:"" },
+            { name: "橄欖油" , insValue: 109 , soapValue: 0.134 , softOil: false,descript:"" },
+            { name: "芥花油" , insValue: 56, soapValue: 0.1324 , softOil: false ,descript:"" },
+            { name: "葡萄籽油" , insValue: 66, soapValue: 0.1265 , softOil: true ,descript:"" },
+            { name: "苦茶油" , insValue: 108, soapValue: 0.1362 , softOil: true ,descript:"" },
+            { name: "甜杏仁油" , insValue: 97, soapValue: 0.136 , softOil: true ,descript:"" },
+            { name: "荷荷巴油" , insValue: 11, soapValue: 0.069 , softOil: true ,descript:"" },
+            { name: "蓖麻油" , insValue: 95, soapValue: 0.1286 , softOil: true ,descript:"" },
+            { name: "小麥胚芽油" , insValue: 58, soapValue: 0.137 , softOil: true ,descript:"" },
+            { name: "榛果油" , insValue: 94, soapValue: 0.1356 , softOil: true ,descript:"" },
+            { name: "杏桃核仁油" , insValue: 91, soapValue: 0.135 , softOil: true ,descript:"" },
+            { name: "米糠油" , insValue: 70, soapValue: 0.128 , softOil: true ,descript:"" },
+            { name: "澳洲胡桃油" , insValue: 119, soapValue: 0.139 , softOil: true ,descript:"" },
+            { name: "酪梨油" , insValue: 99, soapValue: 0.134 , softOil: true ,descript:"" },
+        ];
+    var html="";
+    $.each(oilList, function (key, obj) {
+       // debugger;
+        var oilText = obj.name + " [INS:" + obj.insValue + " 皂化價:"+ obj.soapValue + "]";
+        html += '<option value='+obj.name+' text='+oilText+'>'+oilText+'</option>';
+    })
+    $('#selOil').html(html);    
+  
+  
+    // var myCars=new Array("Saab","Volvo","BMW");
+    // html = '<ul id="uicars">';
+    // for(var i = 0; i < myCars.length; i++)
+    // {
+    //     html += '<li id="lisCars">' + myCars[i] + '</li>';
+    // }
+    // html += '</ul>';
+    // $('#divStepByStep').html(html);
+    // // $("#lisCars").addClass("list-group-item");
+
+        
+});
+$(function(){
+	$(".close").click(function(){
+		$("#myAlert").alert();
+	});
+});  
+function selOilChange(s){
+	     alert(s);
+} 
+function OilAdd(){
+    var s=$("#selOil").find(":selected").text();
+    alert(s);
+}
+$(function () { 
+        $('#collapse3').on('show.bs.collapse', function () {
+             alert('功能尚未完成');
+           // $('#myAlert').attr('aria-hidden',false);
+        })
+    });
+
+</script>
+
+</body>
+</html>
